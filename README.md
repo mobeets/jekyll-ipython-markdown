@@ -22,7 +22,7 @@ The idea is that you will (manually) run `build.sh` to render any ipython notebo
 
     ```shell
     cd jekyll-ipython-markdown
-    ../install.sh
+    ./install.sh
     ```
 
 ## Usage
