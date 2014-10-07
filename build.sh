@@ -1,24 +1,24 @@
 #!/bin/bash
 #
 # Converts .ipynb file to .md file and data folder
-#   .md -> $OUTDIR
-#   data folder -> $IMGDIR
+#   .md -> $IPYTHON_OUTDIR
+#   data folder -> $IPYTHON_IMGDIR
 #
 # source: http://cscorley.github.io/2014/02/21/blogging-with-ipython-and-jekyll/
 #
 
-source ${BINDIR}/config.env
-BINDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # script directory, also containing jekyll.tpl and ipython.py
-IMGDIR="${IPYTHON_BLOG_PATH}/${IPYTHON_IMAGES}"
-OUTDIR="${IPYTHON_BLOG_PATH}/${IPYTHON_DRAFTS}"
+IPYTHON_BINDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # script directory, also containing jekyll.tpl and ipython.py
+source ${IPYTHON_BINDIR}/config.env
+IPYTHON_IMGDIR="${IPYTHON_BINDIR}/../../${IPYTHON_IMAGES}"
+IPYTHON_OUTDIR="${IPYTHON_BINDIR}/../../${IPYTHON_DRAFTS}"
 
-export IPYTHON_BIN_DIR=${BINDIR}
-export IPYTHON_BUILD_DIR=${IMGDIR}
+export IPYTHON_BIN_DIR=${IPYTHON_BINDIR}
+export IPYTHON_BUILD_DIR=${IPYTHON_IMGDIR}
 export IPYTHON_IMAGES=${IPYTHON_IMAGES}
 
 nbconvert(){
-    ipython nbconvert --config ${BINDIR}/ipython.py $1;
-        find ${IMGDIR} -name '*.md' -exec mv {} ${OUTDIR} \;
+    ipython nbconvert --config ${IPYTHON_BINDIR}/ipython.py $1;
+        find ${IPYTHON_IMGDIR} -name '*.md' -exec mv {} ${IPYTHON_OUTDIR} \;
 }
 for fname in "$@"
 do
