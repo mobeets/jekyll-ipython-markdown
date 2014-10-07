@@ -16,7 +16,7 @@ This is a way to turn ipython notebooks into markdown files for your jekyll blog
     git clone https://github.com/mobeets/jekyll-ipython-markdown.git
     ```
 
-2. Edit config.env if necessary, then create the specified folders by running `install.sh`:
+2. Edit `config.env` if necessary, then create the specified folders by running `install.sh`:
 
     ```shell
     cd jekyll-ipython-markdown
