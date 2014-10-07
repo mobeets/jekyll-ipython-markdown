@@ -1,5 +1,7 @@
 This is a way to turn ipython notebooks into markdown files for your jekyll blog.
 
+The idea is that you will (manually) run `build.sh` to render any ipython notebooks in `_notebooks/` as markdown into your `_drafts/` folder.
+
 ## Set up
 
 0. Go to your jekyll blog's root folder, for example:
@@ -42,3 +44,6 @@ You can also build individual files:
 ./_notebooks/jekyll-ipython-markdown/build.sh _notebooks/test.ipynb
 ```
 
+## Extensions
+
+* Use [fswatch](https://github.com/emcrisostomo/fswatch) to auto-build `.ipynb` files as they change
