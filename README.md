@@ -1,6 +1,6 @@
 This is a way to turn ipython notebooks into markdown files for your jekyll blog.
 
-The idea is that you will (manually) run `build.sh` to render any ipython notebooks in `_notebooks/` as markdown into your `_drafts/` folder. (These folder names can be changed by editing `config.env`).
+The idea is that you will (manually) run `build` to render any ipython notebooks in `_notebooks/` as markdown into your `_drafts/` folder. (These folder names can be changed by editing `config.env`).
 
 ## Set up
 
@@ -18,11 +18,11 @@ The idea is that you will (manually) run `build.sh` to render any ipython notebo
     git clone https://github.com/mobeets/jekyll-ipython-markdown.git
     ```
 
-2. Edit `config.env` if necessary, then create the specified folders by running `install.sh`:
+2. Edit `config.env` if necessary, then create the specified folders by running `prepare`:
 
     ```shell
     cd jekyll-ipython-markdown
-    ./install.sh
+    ./prepare
     ```
 
 ## Usage
@@ -33,7 +33,7 @@ Here's all you do:
 
 ```shell
 cd _notebooks
-./jekyll-ipython-markdown/build.sh *.ipynb
+./jekyll-ipython-markdown/build *.ipynb
 ```
 
 This will build all your ipython notebook files in `_notebooks/` and place the resulting markdown in `_drafts/` and the resulting images in `images/ipython`. (These folder names can be changed by editing `config.env`).
@@ -42,7 +42,7 @@ You can also build individual files:
 
 ```shell
 cd _notebooks
-./jekyll-ipython-markdown/build.sh test.ipynb
+./jekyll-ipython-markdown/build test.ipynb
 ```
 
 ## Extensions
