@@ -11,13 +11,15 @@ IPYTHON_BINDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # script dire
 source ${IPYTHON_BINDIR}/config.env
 IPYTHON_IMGDIR="${IPYTHON_BINDIR}/../../${IPYTHON_IMAGES}"
 IPYTHON_OUTDIR="${IPYTHON_BINDIR}/../../${IPYTHON_DRAFTS}"
+IPYTHON_INDIR="${IPYTHON_BINDIR}/../../${IPYTHON_NOTEBOOKS}"
 
 export IPYTHON_BIN_DIR=${IPYTHON_BINDIR}
 export IPYTHON_BUILD_DIR=${IPYTHON_IMGDIR}
 export IPYTHON_IMAGES=${IPYTHON_IMAGES}
+export IPYTHON_INDIR=${IPYTHON_INDIR}
 
 nbconvert(){
-    ipython nbconvert --config ${IPYTHON_BINDIR}/ipython.py $1;
+    python ${IPYTHON_BINDIR}/caller.py $1;
         find ${IPYTHON_IMGDIR} -name '*.md' -exec mv {} ${IPYTHON_OUTDIR} \;
 }
 for fname in "$@"

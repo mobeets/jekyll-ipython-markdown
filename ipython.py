@@ -11,9 +11,9 @@ IPYTHON_BIN_DIR = os.path.abspath(os.environ['IPYTHON_BIN_DIR'])
 IPYTHON_BUILD_DIR = os.path.abspath(os.environ['IPYTHON_BUILD_DIR'])
 IPYTHON_STATIC_DIR = os.environ['IPYTHON_IMAGES']
 
-BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
 try:
     f = next(arg.split('.ipynb')[0] for arg in sys.argv if arg.endswith('.ipynb'))
+    f = os.path.split(f)[-1]
 except StopIteration:
     f = None
 
