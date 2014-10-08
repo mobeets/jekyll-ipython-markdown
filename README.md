@@ -29,10 +29,11 @@ The idea is that you will (manually) run `build.sh` to render any ipython notebo
 
 You can build one `.ipynb` at a time, or all at once.
 
-If you're in your blog's root folder, here's all you do:
+Here's all you do:
 
 ```shell
-./_notebooks/jekyll-ipython-markdown/build.sh _notebooks/*.ipynb
+cd _notebooks
+./jekyll-ipython-markdown/build.sh *.ipynb
 ```
 
 This will build all your ipython notebook files in `_notebooks/` and place the resulting markdown in `_drafts/` and the resulting images in `images/ipython`. (These folder names can be changed by editing `config.env`).
@@ -40,7 +41,8 @@ This will build all your ipython notebook files in `_notebooks/` and place the r
 You can also build individual files:
 
 ```shell
-./_notebooks/jekyll-ipython-markdown/build.sh _notebooks/test.ipynb
+cd _notebooks
+./jekyll-ipython-markdown/build.sh test.ipynb
 ```
 
 ## Extensions
